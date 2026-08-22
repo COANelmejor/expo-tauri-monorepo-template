@@ -49,12 +49,13 @@ Para Android e iOS:
 
 | Qué | Dónde |
 | --- | --- |
-| Prefijo `@app/` de los paquetes | `package.json` de cada paquete y sus importaciones; los scripts `pnpm --filter @app/mobile` / `@app/desktop` del `package.json` raíz; `beforeDevCommand` y `beforeBuildCommand` en `apps/desktop/src-tauri/tauri.conf.json`; el campo `extends` de `apps/mobile/tsconfig.json`, `packages/ui/tsconfig.json` y `packages/core/tsconfig.json` |
+| Prefijo `@app/` de los paquetes | `package.json` de cada paquete y sus importaciones; los scripts `pnpm --filter @app/mobile` / `@app/desktop` del `package.json` raíz; `beforeDevCommand` y `beforeBuildCommand` en `apps/desktop/src-tauri/tauri.conf.json`; el campo `extends` de `apps/mobile/tsconfig.json`, `packages/ui/tsconfig.json` y `packages/core/tsconfig.json`; los ejemplos de comandos en `apps/mobile/CLAUDE.md` |
 | Nombre del repositorio (`app-template`) | `package.json` raíz (`name`) y `apps/mobile/app.json` (`slug`) |
 | Bundle identifier `com.ejemplo.app` | `apps/mobile/app.json` (`ios.bundleIdentifier`, `android.package`) y `apps/desktop/src-tauri/tauri.conf.json` (`identifier`) |
 | Nombre visible `App Template` | `apps/mobile/app.json` (`name`) y `apps/desktop/src-tauri/tauri.conf.json` (`productName`) |
 | Esquema de enlace profundo `apptemplate` | `apps/mobile/app.json` (`scheme`) |
-| Iconos | `apps/mobile/assets/`, y `apps/desktop/src-tauri/icons/` regenerados con `tauri icon` |
+| Iconos de escritorio | `apps/desktop/src-tauri/icons/`, regenerados con `tauri icon` a partir de una imagen de origen |
+| Iconos de móvil/web | la PoC no declara ninguno y usa los de Expo por defecto; para poner los propios, añade los archivos al proyecto y decláralos en `apps/mobile/app.json` con las claves `icon` y `splash` |
 
 ## Notas de la plantilla
 
