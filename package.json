@@ -3,10 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=10"
+  },
   "scripts": {
     "dev": "pnpm --filter @app/mobile dev",
     "dev:web": "pnpm --filter @app/mobile dev:web",
-    "build:web": "pnpm --filter @app/mobile build:web",
+    "build:web": "turbo run build:web",
     "dev:desktop": "pnpm --filter @app/desktop dev",
     "build:desktop": "pnpm --filter @app/desktop build",
     "typecheck": "turbo run typecheck",
