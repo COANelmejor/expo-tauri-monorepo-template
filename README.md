@@ -1,74 +1,107 @@
-# Plantilla monorepo multiplataforma
+# Cross-platform app template
 
-Una sola base de código para Android, iOS, web y escritorio.
+**English** · [Español](README.es.md)
 
-## Requisitos previos
+One codebase for Android, iOS, web and desktop — designed to be built out with
+a coding agent like Claude Code.
 
-| Herramienta | Versión mínima |
+Setting up a monorepo that actually ships to four platforms takes a day of
+fighting toolchains: pnpm symlinks that Metro cannot resolve, TypeScript
+versions Expo rejects, a desktop shell that has to serve a web bundle it did
+not build. This template has those fights already lost and documented, so your
+first session starts on working ground.
+
+## Why "for agents"
+
+A coding agent is only as good as the constraints it is given. Point one at an
+empty directory and you get plausible architecture that breaks on the third
+platform. Point one at this repository and it reads `CLAUDE.md` first, which
+tells it where code belongs, which dependencies are off-limits, and how to
+verify its own work on all four targets.
+
+The three `CLAUDE.md` files are the real product here. The code is a
+demonstration that the rules hold.
+
+They are plain Markdown, so they work with any tool that reads repository
+instructions — Claude Code, Cursor, Copilot. Nothing here is Claude-specific
+beyond the filename.
+
+## What you get
+
+A single screen — a greeting, the current platform name, and a counter — living
+in a shared package and mounted by every app. It exists to prove the wiring
+works. **Replace it with your product; keep the architecture.**
+
+    apps/mobile      Expo: Android, iOS and the web export
+    apps/desktop     Tauri: wraps the web export, no UI of its own
+    packages/ui      shared components (React Native primitives)
+    packages/core    pure logic, no UI dependencies
+    packages/config  shared tsconfig
+
+## Requirements
+
+| Tool | Minimum |
 | --- | --- |
 | Node | 20 |
 | pnpm | 10 |
-| Rust | 1.77 (para escritorio) |
-| Xcode + Command Line Tools | para iOS y escritorio en macOS |
-| Android Studio + SDK | para Android |
+| Rust | 1.77 (desktop only) |
+| Xcode + Command Line Tools | iOS, and desktop on macOS |
+| Android Studio + SDK | Android |
 
-En Windows, el escritorio necesita además WebView2.
+Desktop on Windows also needs WebView2.
 
-## Puesta en marcha
+## Getting started
 
     pnpm install
     pnpm dev:web
 
-## Comandos
+Then open http://localhost:8081.
 
-| Comando | Qué hace |
+## Commands
+
+| Command | What it does |
 | --- | --- |
-| `pnpm dev` | Expo en desarrollo, eligiendo plataforma |
-| `pnpm dev:web` | solo web, en el puerto 8081 |
+| `pnpm dev` | Expo dev server, pick a platform |
+| `pnpm dev:web` | web only, port 8081 |
 | `pnpm build:web` | `expo export --platform web` |
-| `pnpm dev:desktop` | Tauri en desarrollo |
-| `pnpm build:desktop` | binario de escritorio |
-| `pnpm typecheck` | `tsc --noEmit` en todos los paquetes |
-| `pnpm test` | tests de `@app/core` |
+| `pnpm dev:desktop` | Tauri in development |
+| `pnpm build:desktop` | desktop binary |
+| `pnpm typecheck` | `tsc --noEmit` across packages |
+| `pnpm test` | `@app/core` tests |
 | `pnpm lint` | Biome |
-| `pnpm format` | Biome, aplica correcciones |
+| `pnpm format` | Biome, writes fixes |
 
-Para Android e iOS:
+For Android and iOS:
 
     pnpm --filter @app/mobile android
     pnpm --filter @app/mobile ios
 
-## Estructura
+## What to replace after cloning
 
-    apps/mobile      Expo: Android, iOS y export web
-    apps/desktop     Tauri: envuelve el export web
-    packages/ui      componentes compartidos
-    packages/core    lógica pura, sin dependencias de UI
-    packages/config  tsconfig compartidos
-
-## Qué reemplazar al clonar
-
-| Qué | Dónde |
+| What | Where |
 | --- | --- |
-| Prefijo `@app/` de los paquetes | `package.json` de cada paquete y sus importaciones; los scripts `pnpm --filter @app/mobile` / `@app/desktop` del `package.json` raíz; `beforeDevCommand` y `beforeBuildCommand` en `apps/desktop/src-tauri/tauri.conf.json`; el campo `extends` de `apps/mobile/tsconfig.json`, `packages/ui/tsconfig.json` y `packages/core/tsconfig.json`; los ejemplos de comandos en `apps/mobile/CLAUDE.md` |
-| Nombre del repositorio (`app-template`) | `package.json` raíz (`name`) y `apps/mobile/app.json` (`slug`) |
-| Bundle identifier `com.ejemplo.app` | `apps/mobile/app.json` (`ios.bundleIdentifier`, `android.package`) y `apps/desktop/src-tauri/tauri.conf.json` (`identifier`) |
-| Nombre visible `App Template` | `apps/mobile/app.json` (`name`) y `apps/desktop/src-tauri/tauri.conf.json` (`productName`) |
-| Esquema de enlace profundo `apptemplate` | `apps/mobile/app.json` (`scheme`) |
-| Iconos de escritorio | `apps/desktop/src-tauri/icons/`, regenerados con `tauri icon` a partir de una imagen de origen |
-| Iconos de móvil/web | la PoC no declara ninguno y usa los de Expo por defecto; para poner los propios, añade los archivos al proyecto y decláralos en `apps/mobile/app.json` con las claves `icon` y `splash` |
-| Metadatos del binario de escritorio | `description` y `authors` en `apps/desktop/src-tauri/Cargo.toml` |
-| Documentación de la PoC original | `docs/superpowers/` contiene el spec y el plan de la PoC original; puede borrarse al clonar |
+| `@app/` package prefix | each package's `package.json` and its imports; the `pnpm --filter @app/mobile` / `@app/desktop` scripts in the root `package.json`; `beforeDevCommand` and `beforeBuildCommand` in `apps/desktop/src-tauri/tauri.conf.json`; the `extends` field of `apps/mobile/tsconfig.json`, `packages/ui/tsconfig.json` and `packages/core/tsconfig.json`; the command examples in `apps/mobile/CLAUDE.md` |
+| Repository name (`app-template`) | root `package.json` (`name`) and `apps/mobile/app.json` (`slug`) |
+| Bundle identifier `com.example.app` | `apps/mobile/app.json` (`ios.bundleIdentifier`, `android.package`) and `apps/desktop/src-tauri/tauri.conf.json` (`identifier`) |
+| Display name `App Template` | `apps/mobile/app.json` (`name`) and `apps/desktop/src-tauri/tauri.conf.json` (`productName`) |
+| Deep link scheme `apptemplate` | `apps/mobile/app.json` (`scheme`) |
+| Desktop icons | `apps/desktop/src-tauri/icons/`, regenerated with `tauri icon` from a source image |
+| Mobile/web icons | none are declared; Expo defaults are used. To add your own, put the files in the project and declare them in `apps/mobile/app.json` under `icon` and `splash` |
+| Desktop binary metadata | `description` and `authors` in `apps/desktop/src-tauri/Cargo.toml` |
+| Original design notes | `docs/superpowers/` holds the spec and plan of the original proof of concept; safe to delete |
 
-## Notas de la plantilla
+## Notes
 
-- TypeScript está fijado en la versión que Expo declara esperar (hoy 6.0.3).
-  Al subir de SDK, comprueba con `npx expo-doctor` si esa expectativa cambió.
-  La 7.x es el compilador reescrito en Go; espera a que Expo lo declare.
-- El `.npmrc` con `node-linker=hoisted` es obligatorio: Metro no resuelve los
-  enlaces simbólicos de pnpm.
-- `apps/desktop/src-tauri/tauri.conf.json` tiene `security.csp` en `null`
-  porque el export web de Expo inyecta estilos y scripts en línea, y una CSP
-  restrictiva rompería la carga del bundle dentro de la ventana de Tauri.
-  Cualquier producto que parta de esta plantilla debe definir su propia CSP
-  en ese archivo antes de publicar la aplicación de escritorio.
+- **TypeScript is pinned** to the version Expo declares it expects (6.0.3
+  today). `expo-doctor` fails on any other major, so check it when bumping the
+  SDK. Version 7.x is the Go rewrite; wait until Expo declares it.
+- **`.npmrc` with `node-linker=hoisted` is mandatory** — Metro cannot resolve
+  pnpm's symlinks without it.
+- **`security.csp` is `null`** in `apps/desktop/src-tauri/tauri.conf.json`,
+  because the Expo web bundle injects inline styles and scripts and a
+  restrictive CSP would stop it loading inside the Tauri window. Define your own
+  CSP there before shipping a desktop app.
+
+## License
+
+MIT — see [LICENSE](LICENSE).

@@ -20,7 +20,7 @@
 - Dependencias entre paquetes del workspace con `workspace:*`.
 - Componentes con `export function NombreComponente()`. Sin `default export` salvo en archivos de ruta de Expo Router.
 - Archivos de componente en `PascalCase.tsx`; el resto en `kebab-case.ts`.
-- Identificadores genéricos: paquetes bajo `@app/`, bundle identifier `com.ejemplo.app`.
+- Identificadores genéricos: paquetes bajo `@app/`, bundle identifier `com.example.app`.
 - Commits convencionales: `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`.
 - Sin comentarios que expliquen lo obvio. Comentar solo el porqué.
 - Solo `pnpm`. Nunca `npm` ni `yarn` para instalar.
@@ -555,11 +555,11 @@ Expected: `apps/mobile/package.json` queda con `expo` en la versión 57.x.
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "bundleIdentifier": "com.ejemplo.app",
+      "bundleIdentifier": "com.example.app",
       "supportsTablet": true
     },
     "android": {
-      "package": "com.ejemplo.app"
+      "package": "com.example.app"
     },
     "web": {
       "bundler": "metro",
@@ -727,7 +727,7 @@ Leer el archivo generado y verificar que el bloque `build` y el identificador qu
 ```json
 {
   "productName": "App Template",
-  "identifier": "com.ejemplo.app",
+  "identifier": "com.example.app",
   "build": {
     "beforeDevCommand": "pnpm --filter @app/mobile dev:web",
     "beforeBuildCommand": "pnpm --filter @app/mobile build:web",
@@ -845,7 +845,7 @@ Para Android e iOS:
 | --- | --- |
 | Prefijo `@app/` de los paquetes | `package.json` de cada paquete y sus importaciones |
 | Nombre del repositorio (`app-template`) | `package.json` raíz, `apps/mobile/app.json`, `tauri.conf.json` |
-| Bundle identifier `com.ejemplo.app` | `apps/mobile/app.json` (`ios.bundleIdentifier`, `android.package`) y `tauri.conf.json` (`identifier`) |
+| Bundle identifier `com.example.app` | `apps/mobile/app.json` (`ios.bundleIdentifier`, `android.package`) y `tauri.conf.json` (`identifier`) |
 | Nombre visible `App Template` | `apps/mobile/app.json` (`name`) y `tauri.conf.json` (`productName`) |
 | Esquema de enlace profundo `apptemplate` | `apps/mobile/app.json` (`scheme`) |
 | Iconos | `apps/mobile/assets/`, y `apps/desktop/src-tauri/icons/` regenerados con `tauri icon` |

@@ -2,11 +2,11 @@ import { describe, expect, it } from 'vitest'
 import { buildGreeting } from './greeting'
 
 describe('buildGreeting', () => {
-  it('nombra la plataforma recibida', () => {
-    expect(buildGreeting({ platform: 'web' })).toBe('Hola mundo desde web')
+  it('names the platform it receives', () => {
+    expect(buildGreeting({ platform: 'web' })).toBe('Hello world from web')
   })
 
-  it('usa un texto neutro cuando la plataforma viene vacía', () => {
-    expect(buildGreeting({ platform: '   ' })).toBe('Hola mundo desde una plataforma desconocida')
+  it('falls back to neutral text when the platform is blank', () => {
+    expect(buildGreeting({ platform: '   ' })).toBe('Hello world from an unknown platform')
   })
 })

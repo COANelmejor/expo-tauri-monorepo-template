@@ -7,11 +7,11 @@
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "bundleIdentifier": "com.ejemplo.app",
+      "bundleIdentifier": "com.example.app",
       "supportsTablet": true
     },
     "android": {
-      "package": "com.ejemplo.app"
+      "package": "com.example.app"
     },
     "web": {
       "bundler": "metro",

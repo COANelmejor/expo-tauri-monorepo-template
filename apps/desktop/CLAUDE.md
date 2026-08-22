@@ -1,22 +1,22 @@
 # apps/desktop
 
-Envoltorio de escritorio con Tauri v2. No tiene interfaz propia: sirve la
-salida web de `apps/mobile`.
+Tauri v2 desktop wrapper. It has no interface of its own: it serves the web
+output of `apps/mobile`.
 
-## Reglas
+## Rules
 
-- Si aparece código de interfaz dentro de `src-tauri`, algo se hizo mal.
-- En desarrollo, `devUrl` apunta al servidor de Expo en el puerto 8081.
-- En la compilación, `frontendDist` apunta a `apps/mobile/dist`, que genera
+- Interface code inside `src-tauri` means something went wrong.
+- In development, `devUrl` points at the Expo dev server on port 8081.
+- For builds, `frontendDist` points at `apps/mobile/dist`, produced by
   `beforeBuildCommand`.
-- Requiere Rust y, en macOS, las Command Line Tools de Xcode. En Windows hace
-  falta WebView2. Si falta el toolchain, decirlo en vez de rodearlo.
-- `security.csp` está en `null` a propósito: el bundle de Expo web inyecta
-  estilos y scripts en línea, y una CSP restrictiva lo rompería. Todo
-  producto que herede esta plantilla debe definir su propia CSP en
-  `tauri.conf.json` antes de publicar.
+- Requires Rust, plus Xcode Command Line Tools on macOS and WebView2 on
+  Windows. If the toolchain is missing, say so instead of working around it.
+- `security.csp` is `null` on purpose: the Expo web bundle injects inline
+  styles and scripts, and a restrictive CSP would break it. Any product built
+  on this template must define its own CSP in `tauri.conf.json` before
+  shipping.
 
-## Comandos
+## Commands
 
-    pnpm dev:desktop     # levanta la web y la envuelve
-    pnpm build:desktop   # binario de escritorio
+    pnpm dev:desktop     # boots the web server and wraps it
+    pnpm build:desktop   # desktop binary

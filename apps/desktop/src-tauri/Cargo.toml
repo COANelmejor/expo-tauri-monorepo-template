@@ -1,8 +1,9 @@
 [package]
 name = "app"
 version = "0.0.0"
-description = "Envoltorio de escritorio (Tauri) para la app compartida"
+description = "Tauri desktop shell for the shared app"
 authors = []
+license = "MIT"
 edition = "2021"
 rust-version = "1.77.2"
 

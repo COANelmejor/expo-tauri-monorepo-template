@@ -1,22 +1,25 @@
 # apps/mobile
 
-App de Expo con Expo Router. Cubre Android, iOS y el export web que consume
-`apps/desktop`.
+Expo app with Expo Router. Covers Android, iOS and the web export that
+`apps/desktop` consumes.
 
-## Reglas
+## Rules
 
-- Es un cascarón delgado. Los archivos de `app/` solo montan componentes de
-  `@app/ui`; no llevan lógica de presentación.
-- `default export` únicamente en archivos de ruta, porque Expo Router lo exige.
-- No escribir `metro.config.js` con `watchFolders` ni `extraNodeModules`: Expo
-  configura Metro para el monorepo automáticamente desde el SDK 52.
-- `web.output` debe seguir en `single`. Tauri sirve archivos estáticos y no
-  puede ejecutar el modo `server`.
+- This is a thin shell. Files under `app/` only mount components from
+  `@app/ui`; they hold no presentation logic.
+- Default exports only in route files, because Expo Router requires them.
+- Never hand-write `metro.config.js` with `watchFolders` or
+  `extraNodeModules`: Expo configures Metro for monorepos automatically since
+  SDK 52.
+- `web.output` must stay `single`. Tauri serves static files and cannot run the
+  `server` target.
+- Add native dependencies with `npx expo install`, never with `pnpm add`, so
+  versions stay aligned with the SDK. Verify with `npx expo-doctor`.
 
-## Comandos
+## Commands
 
-    pnpm --filter @app/mobile dev        # elegir plataforma
-    pnpm --filter @app/mobile dev:web    # solo web, en el puerto 8081
+    pnpm --filter @app/mobile dev        # pick a platform
+    pnpm --filter @app/mobile dev:web    # web only, port 8081
     pnpm --filter @app/mobile android
     pnpm --filter @app/mobile ios
-    pnpm --filter @app/mobile build:web  # genera dist/
+    pnpm --filter @app/mobile build:web  # writes dist/

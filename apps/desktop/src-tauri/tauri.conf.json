@@ -2,7 +2,7 @@
   "$schema": "../../../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "App Template",
   "version": "0.0.0",
-  "identifier": "com.ejemplo.app",
+  "identifier": "com.example.app",
   "build": {
     "frontendDist": "../../mobile/dist",
     "devUrl": "http://localhost:8081",

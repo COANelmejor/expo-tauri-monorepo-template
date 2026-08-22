@@ -164,6 +164,6 @@ Los pasos 1 a 6 se automatizan en esta sesión. El 7 queda documentado.
 ## Fase plantilla
 
 Ningún identificador contiene nombre de producto. Se usan `@app/` y
-`com.ejemplo.app`, fáciles de buscar y reemplazar. El `README.md` lista qué
+`com.example.app`, fáciles de buscar y reemplazar. El `README.md` lista qué
 reemplazar al clonar: nombre de paquete, bundle identifier, nombre visible e
 iconos. También documenta que TypeScript sigue la versión que Expo declara esperar.

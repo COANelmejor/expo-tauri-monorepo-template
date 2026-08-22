@@ -9,9 +9,9 @@ export function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.greeting}>{greeting}</Text>
-      <Text style={styles.counter}>Contador: {count}</Text>
+      <Text style={styles.counter}>Counter: {count}</Text>
       <Pressable style={styles.button} onPress={() => setCount((value) => value + 1)}>
-        <Text style={styles.buttonLabel}>Incrementar</Text>
+        <Text style={styles.buttonLabel}>Increment</Text>
       </Pressable>
     </View>
   )
