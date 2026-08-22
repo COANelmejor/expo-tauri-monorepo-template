@@ -42,7 +42,7 @@ Al terminar la PoC, este repositorio se convertirá en plantilla para nuevos pro
 └── packages/
     ├── ui/                   # componentes compartidos (RN + RN Web)
     ├── core/                 # lógica pura, sin dependencias de UI
-    └── config/               # tsconfig y eslint compartidos
+    └── config/               # tsconfig compartidos
 ```
 
 En la PoC **no crees** `services/`, `infra/`, `api-client` ni `types`. Se añadirán cuando haya producto real.

@@ -49,8 +49,8 @@ Para Android e iOS:
 
 | Qué | Dónde |
 | --- | --- |
-| Prefijo `@app/` de los paquetes | `package.json` de cada paquete y sus importaciones |
-| Nombre del repositorio (`app-template`) | `package.json` raíz, `apps/mobile/app.json`, `tauri.conf.json` |
+| Prefijo `@app/` de los paquetes | `package.json` de cada paquete y sus importaciones; los scripts `pnpm --filter @app/mobile` / `@app/desktop` del `package.json` raíz; `beforeDevCommand` y `beforeBuildCommand` en `apps/desktop/src-tauri/tauri.conf.json` |
+| Nombre del repositorio (`app-template`) | `package.json` raíz (`name`) y `apps/mobile/app.json` (`slug`) |
 | Bundle identifier `com.ejemplo.app` | `apps/mobile/app.json` (`ios.bundleIdentifier`, `android.package`) y `tauri.conf.json` (`identifier`) |
 | Nombre visible `App Template` | `apps/mobile/app.json` (`name`) y `tauri.conf.json` (`productName`) |
 | Esquema de enlace profundo `apptemplate` | `apps/mobile/app.json` (`scheme`) |
