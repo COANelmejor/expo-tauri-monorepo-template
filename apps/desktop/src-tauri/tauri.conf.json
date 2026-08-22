@@ -1,7 +1,7 @@
 {
   "$schema": "../../../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "App Template",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "identifier": "com.ejemplo.app",
   "build": {
     "frontendDist": "../../mobile/dist",
@@ -32,9 +32,6 @@
       "icons/128x128@2x.png",
       "icons/icon.icns",
       "icons/icon.ico"
-    ],
-    "android": {
-      "debugApplicationIdSuffix": ".debug"
-    }
+    ]
   }
 }
