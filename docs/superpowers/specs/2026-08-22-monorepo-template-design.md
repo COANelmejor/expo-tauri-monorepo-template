@@ -40,7 +40,7 @@ pnpm 10.33.0 · Rust 1.98.0
 .
 ├── package.json            # scripts raíz, devDeps compartidas, packageManager
 ├── pnpm-workspace.yaml     # apps/*, packages/*
-├── turbo.json              # typecheck, lint, test, build:web
+├── turbo.json              # typecheck, test, build:web
 ├── tsconfig.base.json      # strict: true, fuente de verdad de compilación
 ├── biome.json              # lint y formato de todo el monorepo
 ├── .npmrc                  # node-linker=hoisted
@@ -135,8 +135,9 @@ pnpm dev:desktop · pnpm build:desktop · pnpm typecheck · pnpm lint
 Se añade un noveno, `pnpm test`, que `CLAUDE.md` no lista pese a pedir un test
 en `core`. Al terminar la PoC se documenta en `CLAUDE.md` junto al resto.
 
-Turborepo orquesta `typecheck`, `lint` y `test`. Los scripts de `dev` pasan
-directo al paquete correspondiente.
+Turborepo orquesta `typecheck` y `test`. `lint` no pasa por Turborepo: Biome
+recorre el monorepo entero de una sola pasada desde la raíz. Los scripts de
+`dev` pasan directo al paquete correspondiente.
 
 ## Errores y casos límite
 
