@@ -11,6 +11,10 @@ salida web de `apps/mobile`.
   `beforeBuildCommand`.
 - Requiere Rust y, en macOS, las Command Line Tools de Xcode. En Windows hace
   falta WebView2. Si falta el toolchain, decirlo en vez de rodearlo.
+- `security.csp` está en `null` a propósito: el bundle de Expo web inyecta
+  estilos y scripts en línea, y una CSP restrictiva lo rompería. Todo
+  producto que herede esta plantilla debe definir su propia CSP en
+  `tauri.conf.json` antes de publicar.
 
 ## Comandos
 
