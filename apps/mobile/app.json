@@ -17,7 +17,7 @@
       "bundler": "metro",
       "output": "single"
     },
-    "plugins": ["expo-router", "expo-status-bar"],
+    "plugins": ["expo-router"],
     "experiments": {
       "typedRoutes": true
     }
