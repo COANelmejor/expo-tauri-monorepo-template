@@ -1,0 +1,22 @@
+{
+  "name": "app-template",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "dev": "pnpm --filter @app/mobile dev",
+    "dev:web": "pnpm --filter @app/mobile dev:web",
+    "build:web": "pnpm --filter @app/mobile build:web",
+    "dev:desktop": "pnpm --filter @app/desktop dev",
+    "build:desktop": "pnpm --filter @app/desktop build",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "lint": "biome check .",
+    "format": "biome check --write ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.10",
+    "turbo": "^2.10.11",
+    "typescript": "~5.9.0"
+  }
+}

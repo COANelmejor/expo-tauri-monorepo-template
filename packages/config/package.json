@@ -1,0 +1,9 @@
+{
+  "name": "@app/config",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./react-native.json": "./react-native.json",
+    "./node.json": "./node.json"
+  }
+}

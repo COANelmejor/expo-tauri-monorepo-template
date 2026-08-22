@@ -1,0 +1,7 @@
+node_modules/
+.turbo/
+dist/
+.expo/
+apps/desktop/src-tauri/target/
+*.log
+.DS_Store
