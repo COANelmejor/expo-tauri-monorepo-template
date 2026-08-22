@@ -31,6 +31,7 @@ En Windows, el escritorio necesita además WebView2.
 | `pnpm typecheck` | `tsc --noEmit` en todos los paquetes |
 | `pnpm test` | tests de `@app/core` |
 | `pnpm lint` | Biome |
+| `pnpm format` | Biome, aplica correcciones |
 
 Para Android e iOS:
 
@@ -56,6 +57,8 @@ Para Android e iOS:
 | Esquema de enlace profundo `apptemplate` | `apps/mobile/app.json` (`scheme`) |
 | Iconos de escritorio | `apps/desktop/src-tauri/icons/`, regenerados con `tauri icon` a partir de una imagen de origen |
 | Iconos de móvil/web | la PoC no declara ninguno y usa los de Expo por defecto; para poner los propios, añade los archivos al proyecto y decláralos en `apps/mobile/app.json` con las claves `icon` y `splash` |
+| Metadatos del binario de escritorio | `description` y `authors` en `apps/desktop/src-tauri/Cargo.toml` |
+| Documentación de la PoC original | `docs/superpowers/` contiene el spec y el plan de la PoC original; puede borrarse al clonar |
 
 ## Notas de la plantilla
 

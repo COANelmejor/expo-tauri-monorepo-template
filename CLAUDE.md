@@ -26,10 +26,12 @@ Al terminar la PoC, este repositorio se convertirá en plantilla para nuevos pro
 ```
 .
 ├── CLAUDE.md
+├── README.md
 ├── package.json              # scripts raíz, devDeps compartidas
 ├── pnpm-workspace.yaml
 ├── turbo.json
 ├── tsconfig.base.json
+├── biome.json                # config de lint y formato
 ├── .npmrc                    # node-linker=hoisted (requerido por Metro)
 ├── apps/
 │   ├── mobile/               # Expo: Android, iOS y export web
@@ -79,6 +81,7 @@ pnpm build:desktop      # binario de escritorio
 pnpm typecheck          # tsc --noEmit en todos los paquetes
 pnpm test               # tests de packages/core (Vitest)
 pnpm lint
+pnpm format             # Biome, aplica correcciones
 ```
 
 ## Verificación
