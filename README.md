@@ -81,7 +81,7 @@ For Android and iOS:
 | What | Where |
 | --- | --- |
 | `@app/` package prefix | each package's `package.json` and its imports; the `pnpm --filter @app/mobile` / `@app/desktop` scripts in the root `package.json`; `beforeDevCommand` and `beforeBuildCommand` in `apps/desktop/src-tauri/tauri.conf.json`; the `extends` field of `apps/mobile/tsconfig.json`, `packages/ui/tsconfig.json` and `packages/core/tsconfig.json`; the command examples in `apps/mobile/CLAUDE.md` |
-| Repository name (`app-template`) | root `package.json` (`name`) and `apps/mobile/app.json` (`slug`) |
+| Project name (`app-template`) | root `package.json` (`name`) and `apps/mobile/app.json` (`slug`) |
 | Bundle identifier `com.example.app` | `apps/mobile/app.json` (`ios.bundleIdentifier`, `android.package`) and `apps/desktop/src-tauri/tauri.conf.json` (`identifier`) |
 | Display name `App Template` | `apps/mobile/app.json` (`name`) and `apps/desktop/src-tauri/tauri.conf.json` (`productName`) |
 | Deep link scheme `apptemplate` | `apps/mobile/app.json` (`scheme`) |
