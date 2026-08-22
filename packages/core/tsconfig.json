@@ -1,0 +1,4 @@
+{
+  "extends": "@app/config/node.json",
+  "include": ["src"]
+}
