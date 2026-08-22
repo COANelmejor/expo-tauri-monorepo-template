@@ -18,6 +18,8 @@ Al terminar la PoC, este repositorio se convertirá en plantilla para nuevos pro
 | Móvil + web | Expo (React Native + React Native Web) + Expo Router |
 | Escritorio | Tauri v2 (envuelve el export web de Expo) |
 | Estilos | StyleSheet de React Native (sin librerías de UI en la PoC) |
+| Lint y formato | Biome |
+| Tests | Vitest |
 
 ## Estructura objetivo
 
@@ -75,6 +77,7 @@ pnpm build:web          # expo export --platform web
 pnpm dev:desktop        # Tauri en dev (levanta la web y la envuelve)
 pnpm build:desktop      # binario de escritorio
 pnpm typecheck          # tsc --noEmit en todos los paquetes
+pnpm test               # tests de packages/core (Vitest)
 pnpm lint
 ```
 
@@ -92,7 +95,9 @@ La PoC está completa cuando la misma pantalla se ve en las cuatro plataformas �
 
 ## Trampas conocidas
 
-- **pnpm + Metro:** Metro no resuelve bien los enlaces simbólicos de pnpm. El `.npmrc` con `node-linker=hoisted` es obligatorio, no opcional.
+- **pnpm + Metro:** el `.npmrc` con `node-linker=hoisted` es obligatorio, no
+  opcional. En cambio, no añadas `watchFolders` ni `extraNodeModules` a mano:
+  desde el SDK 52 Expo configura Metro para el monorepo automáticamente.
 - **New Architecture:** está activa por defecto en Expo SDK actual y no se puede desactivar en React Native 0.82+. Antes de añadir cualquier librería nativa, verifica que la soporte.
 - **Tauri necesita Rust instalado** y, en Windows, WebView2. En macOS requiere Xcode Command Line Tools. Si falta el toolchain, indícalo en vez de intentar rodearlo.
 - **Rutas absolutas en el export web:** Tauri sirve los archivos localmente; si Expo genera rutas absolutas rotas, ajusta la configuración de export en lugar de parchear el HTML a mano.
