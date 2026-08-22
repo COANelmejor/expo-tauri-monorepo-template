@@ -22,7 +22,7 @@ Fuera de alcance: lógica de negocio, autenticación, base de datos, backend,
 | --- | --- | --- |
 | Lint y formato | Biome 2.5.x | Un solo binario reemplaza ESLint y Prettier, sin plugins |
 | Tests | Vitest 4.x | Corre TypeScript puro sin configuración; `core` no necesita nada de React Native |
-| TypeScript | 5.9.x | TS 7.0.2 es el compilador nuevo en Go; Expo 57 y los tipos de RN aún se declaran contra 5.x |
+| TypeScript | 6.0.3 | Es la versión que Expo 57 declara esperar; `expo-doctor` marca cualquier otra como incompatible. Se descartó 7.0.2 (compilador nuevo en Go) por recién publicada |
 | Expo ↔ Tauri | Híbrido | Dev server con recarga en caliente en desarrollo, export estático en el binario |
 | Salida web | `web.output: "single"` | SPA con enrutado en cliente; Tauri sirve archivos sin servidor detrás |
 | `metro.config.js` | Sin `watchFolders` manuales | Desde el SDK 52 Expo configura Metro para monorepos automáticamente |
@@ -31,7 +31,7 @@ Fuera de alcance: lógica de negocio, autenticación, base de datos, backend,
 ## Versiones
 
 expo y expo-router 57.0.15 · react-native 0.87.0 · @tauri-apps/cli 2.11.4 ·
-turbo 2.10.11 · @biomejs/biome 2.5.10 · vitest 4.1.11 · typescript 5.9.x ·
+turbo 2.10.11 · @biomejs/biome 2.5.10 · vitest 4.1.11 · typescript 6.0.3 ·
 pnpm 10.33.0 · Rust 1.98.0
 
 ## Estructura
@@ -166,4 +166,4 @@ Los pasos 1 a 6 se automatizan en esta sesión. El 7 queda documentado.
 Ningún identificador contiene nombre de producto. Se usan `@app/` y
 `com.ejemplo.app`, fáciles de buscar y reemplazar. El `README.md` lista qué
 reemplazar al clonar: nombre de paquete, bundle identifier, nombre visible e
-iconos. También documenta la actualización a TypeScript 7 como paso posterior.
+iconos. También documenta que TypeScript sigue la versión que Expo declara esperar.

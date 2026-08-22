@@ -6,7 +6,7 @@
 
 **Architecture:** Las apps son cascarones delgados. `@app/core` guarda lógica pura sin React, `@app/ui` la pantalla con primitivas de React Native, `@app/mobile` la monta con Expo Router y `@app/desktop` envuelve la salida web con Tauri sin aportar interfaz propia.
 
-**Tech Stack:** pnpm 10.33 workspaces · Turborepo 2.10 · TypeScript 5.9 · Expo 57 + Expo Router · React Native 0.87 · Tauri 2.11 · Biome 2.5 · Vitest 4.1
+**Tech Stack:** pnpm 10.33 workspaces · Turborepo 2.10 · TypeScript 6.0 · Expo 57 + Expo Router · React Native 0.87 · Tauri 2.11 · Biome 2.5 · Vitest 4.1
 
 **Spec:** `docs/superpowers/specs/2026-08-22-monorepo-template-design.md`
 
@@ -25,7 +25,7 @@
 - Sin comentarios que expliquen lo obvio. Comentar solo el porqué.
 - Solo `pnpm`. Nunca `npm` ni `yarn` para instalar.
 - No escribir `metro.config.js` con `watchFolders` ni `extraNodeModules`: Expo 52+ lo configura solo.
-- TypeScript se fija en `~5.9.0`. No usar 7.x.
+- TypeScript se fija en `~6.0.3`, la versión que Expo 57 declara esperar. No usar 7.x.
 
 ---
 
@@ -93,7 +93,7 @@ onlyBuiltDependencies:
   "devDependencies": {
     "@biomejs/biome": "^2.5.10",
     "turbo": "^2.10.11",
-    "typescript": "~5.9.0"
+    "typescript": "~6.0.3"
   }
 }
 ```
@@ -261,7 +261,7 @@ Lógica pura del saludo, desarrollada con TDD. Es la única tarea con test autom
   },
   "devDependencies": {
     "@app/config": "workspace:*",
-    "typescript": "~5.9.0",
+    "typescript": "~6.0.3",
     "vitest": "^4.1.11"
   }
 }
@@ -385,7 +385,7 @@ React y React Native van como `peerDependencies`: las versiones concretas las fi
   },
   "devDependencies": {
     "@app/config": "workspace:*",
-    "typescript": "~5.9.0"
+    "typescript": "~6.0.3"
   }
 }
 ```
@@ -521,7 +521,7 @@ Sin dependencias todavía: las añade `expo install` en el paso 3, que elige las
   },
   "devDependencies": {
     "@app/config": "workspace:*",
-    "typescript": "~5.9.0"
+    "typescript": "~6.0.3"
   }
 }
 ```
@@ -554,7 +554,6 @@ Expected: `apps/mobile/package.json` queda con `expo` en la versión 57.x.
     "version": "0.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
     "ios": {
       "bundleIdentifier": "com.ejemplo.app",
       "supportsTablet": true
@@ -853,9 +852,9 @@ Para Android e iOS:
 
 ## Notas de la plantilla
 
-- TypeScript está fijado en 5.9.x. La 7.x es el compilador reescrito en Go y
-  todavía no está alineada con los tipos de Expo y React Native; migrar cuando
-  el ecosistema lo declare.
+- TypeScript está fijado en la versión que Expo declara esperar (hoy 6.0.3).
+  Al subir de SDK, comprueba con `npx expo-doctor` si esa expectativa cambió.
+  La 7.x es el compilador reescrito en Go; espera a que Expo lo declare.
 - El `.npmrc` con `node-linker=hoisted` es obligatorio: Metro no resuelve los
   enlaces simbólicos de pnpm.
 ```
