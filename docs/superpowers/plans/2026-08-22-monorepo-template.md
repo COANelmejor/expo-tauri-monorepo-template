@@ -6,7 +6,7 @@
 
 **Architecture:** Las apps son cascarones delgados. `@app/core` guarda lógica pura sin React, `@app/ui` la pantalla con primitivas de React Native, `@app/mobile` la monta con Expo Router y `@app/desktop` envuelve la salida web con Tauri sin aportar interfaz propia.
 
-**Tech Stack:** pnpm 10.33 workspaces · Turborepo 2.10 · TypeScript 6.0 · Expo 57 + Expo Router · React Native 0.87 · Tauri 2.11 · Biome 2.5 · Vitest 4.1
+**Tech Stack:** pnpm 10.33 workspaces · Turborepo 2.10 · TypeScript 6.0 · Expo 57 + Expo Router · React Native 0.86 · Tauri 2.11 · Biome 2.5 · Vitest 4.1
 
 **Spec:** `docs/superpowers/specs/2026-08-22-monorepo-template-design.md`
 

@@ -30,7 +30,7 @@ Fuera de alcance: lógica de negocio, autenticación, base de datos, backend,
 
 ## Versiones
 
-expo y expo-router 57.0.15 · react-native 0.87.0 · @tauri-apps/cli 2.11.4 ·
+expo y expo-router 57.0.15 · react-native 0.86.2 · @tauri-apps/cli 2.11.4 ·
 turbo 2.10.11 · @biomejs/biome 2.5.10 · vitest 4.1.11 · typescript 6.0.3 ·
 pnpm 10.33.0 · Rust 1.98.0
 
