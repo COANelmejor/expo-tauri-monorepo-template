@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "App Template",
+    "slug": "app-template",
+    "scheme": "apptemplate",
+    "version": "0.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "bundleIdentifier": "com.ejemplo.app",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.ejemplo.app"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": ["expo-router", "expo-status-bar"],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
