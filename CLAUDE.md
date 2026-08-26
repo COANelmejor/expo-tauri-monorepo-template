@@ -106,6 +106,7 @@ before.
 
 ```bash
 pnpm install            # install the workspace
+pnpm init:project       # one-off setup after cloning the template
 pnpm dev                # Expo dev server, pick a platform
 pnpm dev:web            # web only, port 8081
 pnpm build:web          # expo export --platform web

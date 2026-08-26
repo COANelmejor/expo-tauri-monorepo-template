@@ -53,6 +53,13 @@ Desktop on Windows also needs WebView2.
 ## Getting started
 
     pnpm install
+    pnpm init:project
+
+`init:project` turns the template into your project: it renames every
+identifier, rewrites the license, keeps the README language you pick, updates
+`CLAUDE.md`, and deletes itself when done. It asks before changing anything and
+never touches your git history.
+
     pnpm dev:web
 
 Then open http://localhost:8081.
@@ -70,6 +77,7 @@ Then open http://localhost:8081.
 | `pnpm test` | `@app/core` tests |
 | `pnpm lint` | Biome |
 | `pnpm format` | Biome, writes fixes |
+| `pnpm init:project` | one-off setup after cloning; removes itself |
 
 For Android and iOS:
 
@@ -77,6 +85,9 @@ For Android and iOS:
     pnpm --filter @app/mobile ios
 
 ## What to replace after cloning
+
+`pnpm init:project` does all of this for you. The table is here for reference,
+or if you would rather do it by hand.
 
 | What | Where |
 | --- | --- |

@@ -8,6 +8,7 @@
     "pnpm": ">=10"
   },
   "scripts": {
+    "init:project": "node scripts/init-template.mjs",
     "dev": "pnpm --filter @app/mobile dev",
     "dev:web": "pnpm --filter @app/mobile dev:web",
     "build:web": "turbo run build:web",

@@ -55,6 +55,13 @@ En Windows, el escritorio necesita además WebView2.
 ## Puesta en marcha
 
     pnpm install
+    pnpm init:project
+
+`init:project` convierte la plantilla en tu proyecto: renombra todos los
+identificadores, reescribe la licencia, deja el README en el idioma que elijas,
+actualiza el `CLAUDE.md` y se borra a sí mismo al terminar. Pregunta antes de
+cambiar nada y nunca toca tu historial de git.
+
     pnpm dev:web
 
 Después abrí http://localhost:8081.
@@ -72,6 +79,7 @@ Después abrí http://localhost:8081.
 | `pnpm test` | tests de `@app/core` |
 | `pnpm lint` | Biome |
 | `pnpm format` | Biome, aplica correcciones |
+| `pnpm init:project` | configuración inicial tras clonar; se elimina solo |
 
 Para Android e iOS:
 
@@ -79,6 +87,9 @@ Para Android e iOS:
     pnpm --filter @app/mobile ios
 
 ## Qué reemplazar al clonar
+
+`pnpm init:project` hace todo esto por vos. La tabla queda como referencia, o
+por si preferís hacerlo a mano.
 
 | Qué | Dónde |
 | --- | --- |
